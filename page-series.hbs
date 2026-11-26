@@ -1,0 +1,24 @@
+{{! Series page template: one body of work. Selected per page under Other options → Page template.
+    Content (statement + Gallery block) comes entirely from the page editor; nothing is hard-coded here. }}
+{{> head}}
+{{> navbar}}
+<main class="site-main" id="main">
+
+   {{#page}}
+      <article class="series series--captions-{{#if @config.page.captionDisplay}}{{@config.page.captionDisplay}}{{else}}below{{/if}} series--{{#if @config.page.seriesLayout}}{{@config.page.seriesLayout}}{{else}}wall{{/if}}" data-template="series">
+
+         <header class="series__header">
+            <h1 class="series__title">{{title}}</h1>
+         </header>
+
+         {{! Statement paragraphs and the Gallery block, in the order she arranged them in the editor }}
+         <div class="series__body entry">
+            {{{text}}}
+         </div>
+
+      </article>
+   {{/page}}
+
+</main>
+
+{{> footer}}

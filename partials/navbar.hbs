@@ -1,7 +1,7 @@
-<header>
+<a class="skip-link" href="#main">{{ translate 'partials.navbar.skip' }}</a>
+<header class="site-header">
 
-   {{! @website global variable used to display a logo and website name  }}
-   {{! check if a Website logo exists, if not, dispaly the website name }}
+   {{! site name, or the logo uploaded in Theme settings }}
    <a id="logo" href="{{@website.url}}">
       {{#if @website.logo}}
          <img src="{{@website.logo}}" alt="{{@website.name}}">
@@ -9,17 +9,23 @@
          {{@website.name}}
       {{/if}}
    </a>
-   {{! /check if a Website logo exists, if not, dispaly the website name }}
-   {{! /@website global variable used to display a logo and website name  }}
 
-   {{! check if a menu is assigned to the Main menu position }}
+   {{! main menu, managed in Menus → assigned to the "Main menu" position }}
    {{#if menus.mainMenu}}
-      {{> menu menus.mainMenu}}
+      {{! three-bar button: zooms and spreads on hover, swivels into an X when open (animation in main.css) }}
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" hidden>
+         <svg class="nav-toggle__icon" width="28" height="28" viewBox="0 0 28 28" aria-hidden="true" focusable="false">
+            <rect class="nav-toggle__bar nav-toggle__bar--top" x="3" y="6" width="22" height="2.5" rx="1.25"/>
+            <rect class="nav-toggle__bar nav-toggle__bar--middle" x="3" y="12.75" width="22" height="2.5" rx="1.25"/>
+            <rect class="nav-toggle__bar nav-toggle__bar--bottom" x="3" y="19.5" width="22" height="2.5" rx="1.25"/>
+         </svg>
+         <span class="visually-hidden">{{ translate 'partials.navbar.menu' }}</span>
+      </button>
+      <div class="site-nav" id="site-nav">
+         {{> menu menus.mainMenu}}
+      </div>
    {{/if}}
-   {{! /check if a menu is assigned to the Main menu position }}
 
-   {{! display search plugin (searchbox: input + button) }}
-      {{{@customSearchInput}}} 
-   {{! /display search plugin (searchbox: input + button) }}
+   {{{@customSearchInput}}}
 
 </header>

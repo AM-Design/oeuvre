@@ -46,7 +46,8 @@
       {{! /code injection by a Custom HTML tool }}
 
    </head>
-   <body>
+   {{!-- layout class from Theme → Look → Layout: sidebar (default) or topbar --}}
+   <body class="layout-{{#if @config.custom.layout}}{{@config.custom.layout}}{{else}}sidebar{{/if}}">
 
       {{! code injection by a Custom HTML tool }}
       {{{@bodyCustomCode}}}

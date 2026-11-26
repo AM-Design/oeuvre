@@ -1,0 +1,29 @@
+{{! Grid of series cards: the published sub-pages of the current page, in the order set in Pages → Edit hierarchy.
+    Used by the front page (for the page chosen in Theme settings → Portfolio) and by the "Portfolio" page template.
+    Draft series are skipped automatically (getPage only finds published pages). }}
+{{#if subpages}}
+   <ul class="series-grid{{#checkIf @config.custom.coverStyle '!=' 'whole'}} series-grid--crop{{/checkIf}}" data-columns="{{#if @config.custom.homeColumns}}{{@config.custom.homeColumns}}{{else}}3{{/if}}">
+      {{#each subpages}}
+         {{#getPage this}}
+            <li class="series-card">
+               <a class="series-card__link" href="{{url}}">
+                  <span class="series-card__frame">
+                     {{#if featuredImage.url}}
+                        <img
+                           src="{{featuredImage.url}}"
+                           {{#if @config.site.responsiveImages}}
+                              {{responsiveImageAttributes 'featuredImage' featuredImage.srcset featuredImage.sizes}}
+                           {{/if}}
+                           {{lazyload "lazy"}}
+                           height="{{featuredImage.height}}"
+                           width="{{featuredImage.width}}"
+                           alt="{{featuredImage.alt}}">
+                     {{/if}}
+                  </span>
+                  <span class="series-card__title">{{title}}</span>
+               </a>
+            </li>
+         {{/getPage}}
+      {{/each}}
+   </ul>
+{{/if}}

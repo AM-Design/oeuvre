@@ -1,22 +1,40 @@
-<footer>
+<footer class="site-footer">
 
-   {{! checks if any menu is assigned to the Footer menu position }}
+   {{! optional signature emblem: Theme → Custom settings → Footer }}
+   {{#if @config.custom.signatureMark}}
+      <span class="site-footer__mark">
+         <img src="{{@config.custom.signatureMark}}" alt="{{@config.custom.signatureAlt}}" loading="lazy">
+      </span>
+   {{/if}}
+
+   {{! footer menu, managed in Menus → assigned to the "Footer menu" position }}
    {{#if menus.footerMenu}}
       {{> menu menus.footerMenu}}
    {{/if}}
-   {{! /checks if any menu is assigned to the Footer menu position }}
-   
+
+   {{! social profile links, set in Theme settings → Social links }}
+   {{#checkIfAny @config.custom.socialInstagram @config.custom.socialFacebook}}
+      <ul class="social-links">
+         {{#if @config.custom.socialInstagram}}
+            <li><a href="{{@config.custom.socialInstagram}}" rel="me noopener" target="_blank">{{ translate 'partials.footer.instagram' }}</a></li>
+         {{/if}}
+         {{#if @config.custom.socialFacebook}}
+            <li><a href="{{@config.custom.socialFacebook}}" rel="me noopener" target="_blank">{{ translate 'partials.footer.facebook' }}</a></li>
+         {{/if}}
+      </ul>
+   {{/checkIfAny}}
+
+   {{#if @config.custom.footerText}}
+      <p class="site-footer__text">{{@config.custom.footerText}}</p>
+   {{/if}}
+
 </footer>
 
 <script async src="{{js "scripts.js"}}"></script>
 
-{{! code injection by a Custom HTML tool }}
-   {{{@footerCustomCode}}}
-{{! /code injection by a Custom HTML tool }}
+{{{@footerCustomCode}}}
 
-{{! helper for creating footer output with Publii-related tags. Currently used for GDPR cookies popup }}
-   {{{ publiiFooter }}}
-{{! /helper for creating footer output with Publii-related tags. Currently used for GDPR cookies popup }}
+{{{ publiiFooter }}}
 
 </body>
 </html>
