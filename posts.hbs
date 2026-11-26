@@ -1,0 +1,17 @@
+{{! News page: the list of posts at /<Post prefix>/ (Site settings → URLs → Post prefix, e.g. "news").
+    Rendered by Publii because config.json → supportedFeatures.postsPage is true; index.hbs stays the home page. }}
+{{> head}}
+{{> navbar}}
+<main class="site-main" id="main">
+   <div class="news" data-template="news">
+      <header class="text-page__header">
+         <h1 class="text-page__title">{{#if @config.custom.newsTitle}}{{@config.custom.newsTitle}}{{else}}{{ translate 'news.title' }}{{/if}}</h1>
+         {{#if @config.custom.newsIntro}}
+            <p class="news__intro">{{@config.custom.newsIntro}}</p>
+         {{/if}}
+      </header>
+
+      {{> post-list}}
+   </div>
+</main>
+{{> footer}}

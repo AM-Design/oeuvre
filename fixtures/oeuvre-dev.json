@@ -1,0 +1,324 @@
+{
+   "_about": "Placeholder test content for the throwaway 'oeuvre-dev' Publii site. Seeded by scripts/seed.sh. Not real artwork or text. Format: docs/fixtures.md",
+   "site": {
+      "name": "oeuvre-dev",
+      "displayName": "Oeuvre dev",
+      "author": "Test Artist",
+      "plugins": [
+         "coreLightboxGallery"
+      ]
+   },
+   "siteSettings": {
+      "advanced": {
+         "urls": {
+            "postsPrefix": "news"
+         }
+      }
+   },
+   "pluginSettings": {
+      "coreLightboxGallery": {
+         "bgColorOpacity": 0.92,
+         "enableDownloadButton": false
+      }
+   },
+   "themeSettings": {
+      "portfolioPage": "@page:work",
+      "homeIntro": "Placeholder: recent artwork by the artist",
+      "homeColumns": "3",
+      "socialInstagram": "https://example.com/instagram-test",
+      "socialFacebook": "https://example.com/facebook-test",
+      "footerText": "Placeholder footer text",
+      "postsPerPage": 2,
+      "newsIntro": "Placeholder introduction for the News page.",
+      "logo": "@upload:placeholder-logo.png",
+      "signatureMark": "@upload:placeholder-mark.png",
+      "signatureAlt": "Placeholder signature emblem"
+   },
+   "pages": [
+      {
+         "key": "work",
+         "title": "Work",
+         "template": "portfolio",
+         "blocks": []
+      },
+      {
+         "key": "series-one",
+         "parent": "work",
+         "title": "Series One",
+         "template": "series",
+         "featured": {
+            "file": "placeholder-3-square.jpg",
+            "alt": "Square placeholder cover"
+         },
+         "blocks": [
+            {
+               "p": "Placeholder statement for the first test series."
+            },
+            {
+               "gallery": [
+                  {
+                     "file": "placeholder-1-tall.jpg",
+                     "alt": "Tall placeholder",
+                     "caption": "Test One — oil & wax on board — 20 × 30 in — Sold"
+                  },
+                  {
+                     "file": "placeholder-2-wide.jpg",
+                     "alt": "Wide placeholder",
+                     "caption": "Test Two — rust print, ink — 32 × 14 in"
+                  },
+                  {
+                     "file": "placeholder-3-square.jpg",
+                     "alt": "Square placeholder",
+                     "caption": "Test Three — 12 × 12 in — Sold"
+                  },
+                  {
+                     "file": "placeholder-4-very-tall.jpg",
+                     "alt": "Very tall placeholder",
+                     "caption": "Test Four"
+                  },
+                  {
+                     "file": "placeholder-5-landscape.jpg",
+                     "alt": "Landscape placeholder",
+                     "caption": ""
+                  },
+                  {
+                     "file": "placeholder-6-panorama.jpg",
+                     "alt": "Panorama placeholder",
+                     "caption": "Test Six — collage — 40 × 12 in — Not for sale"
+                  }
+               ],
+               "columns": 3
+            }
+         ]
+      },
+      {
+         "key": "series-two",
+         "parent": "work",
+         "title": "Series Two",
+         "template": "series",
+         "pageSettings": {
+            "captionDisplay": "lightbox"
+         },
+         "featured": {
+            "file": "placeholder-1-tall.jpg",
+            "alt": "Tall placeholder cover"
+         },
+         "blocks": [
+            {
+               "gallery": [
+                  {
+                     "file": "placeholder-5-landscape.jpg",
+                     "alt": "Landscape placeholder",
+                     "caption": "Captions on this page only show in the enlarged view"
+                  },
+                  {
+                     "file": "placeholder-4-very-tall.jpg",
+                     "alt": "Very tall placeholder",
+                     "caption": "Second caption"
+                  }
+               ],
+               "columns": 2
+            }
+         ]
+      },
+      {
+         "key": "draft-series",
+         "parent": "work",
+         "title": "Draft Series (must not appear)",
+         "template": "series",
+         "status": "draft",
+         "featured": {
+            "file": "placeholder-6-panorama.jpg",
+            "alt": "Panorama placeholder cover"
+         },
+         "blocks": [
+            {
+               "p": "This draft must not show on the home page or the Work page."
+            }
+         ]
+      },
+      {
+         "key": "about",
+         "title": "About",
+         "featured": {
+            "file": "placeholder-5-landscape.jpg",
+            "alt": "Landscape placeholder portrait",
+            "caption": "Placeholder caption"
+         },
+         "blocks": [
+            {
+               "p": "Placeholder statement about the artist. It is long enough to wrap onto a second line so paragraph spacing and line length can be checked."
+            },
+            {
+               "quote": "Placeholder press quote about the work.",
+               "author": "Test Reviewer, Test Gallery"
+            },
+            {
+               "h2": "Selected solo exhibitions"
+            },
+            {
+               "h3": "2025"
+            },
+            {
+               "ul": [
+                  "<em>Test Show</em>, Test Gallery, Test City",
+                  "<em>Second Show</em>, Test Venue, Test City"
+               ]
+            },
+            {
+               "h3": "2024"
+            },
+            {
+               "ul": [
+                  "<em>Earlier Show</em>, Test Space, Test City"
+               ]
+            },
+            {
+               "h2": "Grants"
+            },
+            {
+               "ol": [
+                  "2023 — Placeholder grant",
+                  "2021 — Second placeholder grant"
+               ]
+            },
+            {
+               "h2": "Press"
+            },
+            {
+               "p": "Placeholder article in <a href=\"https://example.com/press\">Test Magazine</a>, 2024."
+            },
+            {
+               "image": {
+                  "file": "placeholder-2-wide.jpg",
+                  "alt": "Wide placeholder in body",
+                  "caption": "Placeholder image block caption"
+               }
+            }
+         ]
+      },
+      {
+         "key": "contact",
+         "title": "Contact",
+         "blocks": [
+            {
+               "p": "Placeholder contact text."
+            },
+            {
+               "p": "Email: <a href=\"mailto:test@example.com\">test@example.com</a>"
+            }
+         ]
+      }
+   ],
+   "posts": [
+      {
+         "title": "Test exhibition opening",
+         "date": "2026-10-01T18:00:00",
+         "tags": [
+            "Exhibition"
+         ],
+         "featured": {
+            "file": "placeholder-6-panorama.jpg",
+            "alt": "Panorama placeholder",
+            "caption": "Placeholder installation view"
+         },
+         "blocks": [
+            {
+               "p": "Placeholder announcement for a test exhibition. <strong>Opening reception</strong> placeholder text."
+            },
+            {
+               "ul": [
+                  "Dates: placeholder",
+                  "Venue: placeholder"
+               ]
+            }
+         ]
+      },
+      {
+         "title": "Studio update with images",
+         "date": "2026-08-15T10:00:00",
+         "tags": [
+            "Studio"
+         ],
+         "blocks": [
+            {
+               "p": "Placeholder work-in-progress note."
+            },
+            {
+               "gallery": [
+                  {
+                     "file": "placeholder-1-tall.jpg",
+                     "alt": "Tall placeholder",
+                     "caption": "Work in progress (test)"
+                  },
+                  {
+                     "file": "placeholder-3-square.jpg",
+                     "alt": "Square placeholder",
+                     "caption": ""
+                  }
+               ],
+               "columns": 2
+            }
+         ]
+      },
+      {
+         "title": "Older test announcement",
+         "date": "2025-03-02T09:00:00",
+         "tags": [
+            "Exhibition"
+         ],
+         "blocks": [
+            {
+               "p": "Placeholder older post for ordering and previous/next links."
+            }
+         ]
+      },
+      {
+         "title": "Draft news post (must not appear)",
+         "date": "2026-11-01T12:00:00",
+         "status": "draft",
+         "tags": [
+            "Exhibition"
+         ],
+         "blocks": [
+            {
+               "p": "This draft must not appear in News, tag pages or previous/next links."
+            }
+         ]
+      }
+   ],
+   "menus": [
+      {
+         "name": "Main",
+         "position": "mainMenu",
+         "items": [
+            {
+               "label": "Work",
+               "page": "work",
+               "items": [
+                  {
+                     "label": "Series One",
+                     "page": "series-one"
+                  },
+                  {
+                     "label": "Series Two",
+                     "page": "series-two"
+                  }
+               ]
+            },
+            {
+               "label": "News",
+               "type": "blogpage"
+            },
+            {
+               "label": "About",
+               "page": "about"
+            },
+            {
+               "label": "Contact",
+               "page": "contact"
+            }
+         ]
+      }
+   ]
+}

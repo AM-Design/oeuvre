@@ -1,0 +1,33 @@
+{
+   "partials": {
+      "pagination": {
+         "prev": "Older posts",
+         "next": "Newer posts"
+      },
+      "navbar": {
+         "menu": "Menu",
+         "skip": "Skip to content"
+      },
+      "footer": {
+         "instagram": "Instagram",
+         "facebook": "Facebook"
+      }
+   },
+   "post": {
+      "previousPost": "Older",
+      "nextPost": "Newer",
+      "navLabel": "More news"
+   },
+   "error": {
+      "404": "Page not found",
+      "message": "This page has moved or no longer exists.",
+      "button": "Go to the home page"
+   },
+   "tag": {
+      "postsTagged": "Posts tagged"
+   },
+   "news": {
+      "title": "News",
+      "empty": "No news yet."
+   }
+}

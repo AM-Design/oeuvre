@@ -1,0 +1,22 @@
+{{! Portfolio page template: the page's own text, then a grid of its sub-pages (the series).
+    Use it for the parent page that holds the series, e.g. "Work". }}
+{{> head}}
+{{> navbar}}
+<main class="site-main" id="main">
+   {{#page}}
+      <article class="portfolio" data-template="portfolio">
+         <header class="series__header">
+            <h1 class="series__title">{{title}}</h1>
+         </header>
+
+         {{#if text}}
+            <div class="series__body entry">
+               {{{text}}}
+            </div>
+         {{/if}}
+
+         {{> series-grid}}
+      </article>
+   {{/page}}
+</main>
+{{> footer}}

@@ -1,0 +1,37 @@
+{{! List of posts (News): used by posts.hbs (the News page) and tag.hbs. Expects `posts` in the current context. }}
+{{#if posts}}
+   <ol class="news-list">
+      {{#each posts}}
+         <li class="news-item{{#if featuredImage.url}} news-item--has-image{{/if}}">
+            {{#if featuredImage.url}}
+               <a class="news-item__image" href="{{url}}" tabindex="-1" aria-hidden="true">
+                  <img
+                     src="{{featuredImage.url}}"
+                     {{#if @config.site.responsiveImages}}
+                        {{responsiveImageAttributes 'featuredImage' featuredImage.srcset featuredImage.sizes}}
+                     {{/if}}
+                     {{lazyload "lazy"}}
+                     height="{{featuredImage.height}}"
+                     width="{{featuredImage.width}}"
+                     alt="">
+               </a>
+            {{/if}}
+            <div class="news-item__body">
+               <time class="news-item__date" datetime="{{date createdAt 'YYYY-MM-DDTHH:mm'}}">{{date createdAt}}</time>
+               <h2 class="news-item__title"><a href="{{url}}">{{title}}</a></h2>
+               <div class="news-item__excerpt">
+                  {{#if hasCustomExcerpt}}{{{excerpt}}}{{else}}<p>{{{excerpt}}}</p>{{/if}}
+               </div>
+               {{#if tags}}
+                  <ul class="post__tags">
+                     {{#each tags}}<li><a href="{{url}}">{{name}}</a></li>{{/each}}
+                  </ul>
+               {{/if}}
+            </div>
+         </li>
+      {{/each}}
+   </ol>
+   {{> pagination}}
+{{else}}
+   <p class="news-empty">{{ translate 'news.empty' }}</p>
+{{/if}}

@@ -1,71 +1,64 @@
 {
-    "name": "Blank",
-    "version": "2.0.0.0",
-    "author": "TidyCustoms <https://tidycustoms.net/>",
+    "name": "Oeuvre",
+    "version": "1.0.0",
+    "author": "Adeeb Missaghi - AdeebMDesign",
     "renderer": {
         "relatedPostsNumber": 3,
-        "renderRelatedPosts": true,
+        "renderRelatedPosts": false,
         "renderSimilarPosts": false,
         "renderPrevNextPosts": true,
         "createContentStructure": true,
         "includeFeaturedInPosts": true,
         "tagsIncludeFeaturedInPosts": true,
-        "authorsIncludeFeaturedInPosts": true,
+        "authorsIncludeFeaturedInPosts": false,
         "featuredPostsNumber": 0,
         "tagsFeaturedPostsNumber": 0,
         "authorsFeaturedPostsNumber": 0,
         "createTagPages": true,
-        "createAuthorPages": true,
-        "createTagsList": true,
+        "createAuthorPages": false,
+        "createTagsList": false,
         "create404page": true,
-        "createSearchPage": true,
-        "customHTML": {
-            "beforePost": "Before every post",
-            "afterPost": "After every post",
-            "beforePage": "Before every page",
-            "afterPage": "After every page"
-        }
+        "createSearchPage": false
     },
     "supportedFeatures": {
         "blockEditor": true,
-        "tagsList": true,
+        "tagsList": false,
         "tagPages": true,
-        "tagImages": true,
-        "authorPages": true,
-        "authorImages": true,
-        "searchPage": true,
+        "tagImages": false,
+        "authorPages": false,
+        "authorImages": false,
+        "searchPage": false,
         "errorPage": true,
-        "customSearch": true, 
-        "customComments": true,
+        "customSearch": false,
+        "customComments": false,
         "embedConsents": true,
-        "pages": true
+        "pages": true,
+        "postsPage": true
     },
     "menus": {
         "mainMenu": "Main menu",
         "footerMenu": "Footer menu"
     },
+    "pageTemplates": {
+        "series": "Series (artwork gallery)",
+        "portfolio": "Portfolio (grid of sub-pages)"
+    },
     "config": [
         {
             "name": "postsPerPage",
-            "label": "Posts per page",
+            "label": "Posts per page (News)",
             "value": 12,
             "type": "number"
         },
         {
             "name": "tagsPostsPerPage",
-            "label": "Tags posts per page",
-            "value": 12,
-            "type": "number"
-        },
-        {
-            "name": "authorsPostsPerPage",
-            "label": "Authors posts per page",
+            "label": "Posts per tag page",
             "value": 12,
             "type": "number"
         },
         {
             "name": "excerptLength",
-            "label": "Excerpt length",
+            "label": "Excerpt length (words, News list)",
             "value": 25,
             "type": "number"
         },
@@ -79,76 +72,220 @@
     ],
     "customConfig": [
         {
-            "name": "mainWidth",
-            "label": "Main width",
-            "group": "Layout",
-            "value": "860px",
-            "type": "text"
-        },
-        {
-            "name": "sidebarWidth",
-            "label": "Sidebar width",
-            "group": "Layout",
-            "value": "300px",
-            "type": "text"
-        },
-        {
             "name": "separator",
             "type": "separator",
-            "label": "Selected Posts",
-            "group": "Sidebar",
+            "label": "Home page",
+            "group": "Portfolio",
             "size": "small"
         },
         {
-            "name": "selectedPosts",
-            "label": "Source",
-            "group": "Sidebar",
-            "note": "Display posts from the specified tag",
+            "name": "portfolioPage",
+            "label": "Portfolio page",
+            "group": "Portfolio",
+            "note": "The page that holds your series as sub-pages (e.g. \"Work\"). Its published sub-pages appear on the home page, in the order set in Pages → Edit hierarchy.",
             "value": "",
-            "type": "tags-dropdown"
+            "type": "pages-dropdown"
         },
         {
-            "name": "amountSelectedtPosts",
-            "label": "Number of posts",
-            "group": "Sidebar",
+            "name": "homeIntro",
+            "label": "Home page introduction",
+            "group": "Portfolio",
+            "note": "Optional line shown above the series grid. Type <br> where you want a line break.",
+            "value": "",
+            "type": "textarea"
+        },
+        {
+            "name": "homeColumns",
+            "label": "Series per row",
+            "group": "Portfolio",
+            "note": "On large screens. Phones show one or two per row.",
             "value": "3",
+            "type": "select",
+            "options": [
+                {
+                    "label": "2",
+                    "value": "2"
+                },
+                {
+                    "label": "3",
+                    "value": "3"
+                },
+                {
+                    "label": "4",
+                    "value": "4"
+                }
+            ]
+        },
+        {
+            "name": "coverStyle",
+            "label": "Series covers",
+            "group": "Portfolio",
+            "note": "How cover images appear on the home and Work pages.",
+            "value": "crop",
+            "type": "select",
+            "options": [
+                {
+                    "label": "Square, title on the image (like the original site)",
+                    "value": "crop"
+                },
+                {
+                    "label": "Whole image, title underneath",
+                    "value": "whole"
+                }
+            ]
+        },
+        {
+            "name": "socialInstagram",
+            "label": "Instagram profile URL",
+            "group": "Social links",
+            "value": "",
+            "type": "text",
+            "placeholder": "https://www.instagram.com/…"
+        },
+        {
+            "name": "socialFacebook",
+            "label": "Facebook profile URL",
+            "group": "Social links",
+            "value": "",
+            "type": "text",
+            "placeholder": "https://www.facebook.com/…"
+        },
+        {
+            "name": "footerText",
+            "label": "Footer text",
+            "group": "Footer",
+            "note": "E.g. © 2026 Your Name. All rights reserved.",
+            "value": "",
             "type": "text"
         },
         {
-            "name": "separator",
-            "type": "separator",
-            "label": "Authors",
-            "group": "Sidebar",
-            "size": "big"
+            "name": "signatureMark",
+            "label": "Signature emblem",
+            "group": "Footer",
+            "note": "Optional small image shown in the footer, e.g. the graphic that marks your artwork.",
+            "value": "",
+            "type": "upload",
+            "upload": true
         },
         {
-            "name": "authors",
-            "label": "On / Off",
-            "group": "Sidebar",
-            "note": "Enable or disable the authors section",
+            "name": "signatureAlt",
+            "label": "Emblem description",
+            "group": "Footer",
+            "note": "Describes the emblem for screen readers, e.g. \"Jane Doe's signature emblem\".",
+            "value": "",
+            "type": "text"
+        },
+        {
+            "name": "newsTitle",
+            "label": "News page title",
+            "group": "News",
+            "note": "Heading of the News page. The page's address is set in Site settings → URLs → Post prefix (e.g. news).",
+            "value": "News",
+            "type": "text"
+        },
+        {
+            "name": "newsIntro",
+            "label": "News page introduction",
+            "group": "News",
+            "note": "Optional line under the heading.",
+            "value": "",
+            "type": "textarea"
+        },
+        {
+            "name": "layout",
+            "label": "Layout",
+            "group": "Look",
+            "note": "Sidebar: logo and menu in a column on the left, like the original site. On phones both layouts use a Menu button.",
+            "value": "sidebar",
+            "type": "select",
+            "options": [
+                {
+                    "label": "Sidebar on the left (like the original site)",
+                    "value": "sidebar"
+                },
+                {
+                    "label": "Menu across the top",
+                    "value": "topbar"
+                }
+            ]
+        },
+        {
+            "name": "accentColor",
+            "label": "Accent colour",
+            "group": "Look",
+            "note": "Current menu item, hover states and the quote rule. Links use a darker shade of it automatically so they stay readable.",
+            "value": "#ed5448",
+            "type": "colorpicker"
+        },
+        {
+            "name": "headingFont",
+            "label": "Heading font",
+            "group": "Look",
+            "note": "Titles, headings and the menu.",
+            "value": "montserrat",
+            "type": "select",
+            "options": [
+                {
+                    "label": "Montserrat (like the original site)",
+                    "value": "montserrat"
+                },
+                {
+                    "label": "Book serif (Iowan / Palatino)",
+                    "value": "book"
+                },
+                {
+                    "label": "Classic serif (Georgia)",
+                    "value": "classic"
+                },
+                {
+                    "label": "System sans-serif",
+                    "value": "sans"
+                }
+            ]
+        },
+        {
+            "name": "bodyFont",
+            "label": "Text font",
+            "group": "Look",
+            "value": "montserrat",
+            "type": "select",
+            "options": [
+                {
+                    "label": "Montserrat (like the original site)",
+                    "value": "montserrat"
+                },
+                {
+                    "label": "System sans-serif",
+                    "value": "sans"
+                }
+            ]
+        },
+        {
+            "name": "uppercase",
+            "label": "Capital letters for headings and menu",
+            "group": "Look",
+            "note": "Like the original site.",
             "value": true,
             "type": "checkbox"
         },
         {
-            "name": "authorsNumber",
-            "label": "Number of authors",
-            "group": "Sidebar",
-            "value": "5",
-            "type": "range",
-            "min": 1,
-            "max": 10,
-            "step": 1
-        },
-        {
             "name": "fontSize",
-            "label": "Font size",
-            "group": "Fonts",
-            "note": "The font-size of the root element in REM unit",
+            "label": "Text size",
+            "group": "Look",
+            "note": "1 = normal. Scales all text.",
             "value": "1",
             "type": "range",
-            "min": 1,
-            "max": 3,
+            "min": 0.9,
+            "max": 1.3,
             "step": 0.05
+        },
+        {
+            "name": "mainWidth",
+            "label": "Maximum content width",
+            "group": "Look",
+            "note": "CSS width, e.g. 1200px.",
+            "value": "1200px",
+            "type": "text"
         },
         {
             "name": "faviconUpload",
@@ -177,94 +314,47 @@
             ]
         }
     ],
-    "authorConfig": [
-        {
-            "name": "displayPostCounter",
-            "label": "Display post counter",
-            "value": 1,
-            "type": "select",
-            "options": [
-                {
-                    "label": "Enabled",
-                    "value": 1
-                },
-                {
-                    "label": "Disabled",
-                    "value": 0
-                }
-            ]
-        }
-    ],
-    "postConfig": [
-        {
-            "name": "displayAuthorBio",
-            "label": "Display author bio",
-            "value": 1,
-            "type": "select",
-            "options": [
-                {
-                    "label": "Enabled",
-                    "value": 1
-                },
-                {
-                    "label": "Disabled",
-                    "value": 0
-                }
-            ]
-        }
-    ],
+    "authorConfig": [],
+    "postConfig": [],
     "pageConfig": [
         {
-            "name": "displayAuthorBio",
-            "label": "Display author bio",
-            "value": 1,
+            "name": "seriesLayout",
+            "label": "Artwork layout",
+            "note": "Series template only. Gallery wall: each work with space around it and its label beside it, like a museum wall. Grid: all works in rows.",
+            "value": "wall",
             "type": "select",
+            "pageTemplates": "series",
             "options": [
                 {
-                    "label": "Enabled",
-                    "value": 1
+                    "label": "Gallery wall (one work at a time, label beside it)",
+                    "value": "wall"
                 },
                 {
-                    "label": "Disabled",
-                    "value": 0
+                    "label": "Grid",
+                    "value": "grid"
                 }
             ]
         },
         {
-            "name": "displayChildPages",
-            "label": "Display child pages",
-            "value": 0,
+            "name": "captionDisplay",
+            "label": "Artwork captions",
+            "note": "Series template only. Captions always appear in the enlarged view.",
+            "value": "below",
             "type": "select",
+            "pageTemplates": "series",
             "options": [
                 {
-                    "label": "Enabled",
-                    "value": 1
+                    "label": "Show under each image",
+                    "value": "below"
                 },
                 {
-                    "label": "Disabled",
-                    "value": 0
+                    "label": "Only in the enlarged view",
+                    "value": "lightbox"
                 }
             ]
         }
     ],
-    "tagConfig": [
-        {
-            "name": "displayPostCounter",
-            "label": "Display post counter",
-            "value": 1,
-            "type": "select",
-            "options": [
-                {
-                    "label": "Enabled",
-                    "value": 1
-                },
-                {
-                    "label": "Disabled",
-                    "value": 0
-                }
-            ]
-        }
-    ],
+    "tagConfig": [],
     "files": {
         "ignoreAssets": [
             "scss",
@@ -274,7 +364,7 @@
         "partialsPath": "partials",
         "responsiveImages": {
             "contentImages": {
-                "sizes": "(max-width: 1200px) 100vw, 1200px",
+                "sizes": "(max-width: 720px) 100vw, 672px",
                 "dimensions": {
                     "xs": {
                         "width": 300,
@@ -295,60 +385,18 @@
                 }
             },
             "featuredImages": {
-                "sizes": "(max-width: 1200px) 100vw, 1200px",
+                "sizes": "(max-width: 600px) 100vw, (max-width: 900px) 50vw, 400px",
                 "dimensions": {
                     "xs": {
                         "width": 300,
-                        "height": 200
+                        "height": "auto"
                     },
                     "sm": {
                         "width": 480,
                         "height": "auto"
                     },
                     "md": {
-                        "width": 749,
-                        "height": "auto"
-                    },
-                    "xl": {
-                        "width": 1200,
-                        "height": "auto"
-                    }
-                }
-            },
-            "tagImages": {
-                "sizes": "(max-width: 1200px) 100vw, 1200px",
-                "dimensions": {
-                    "xs": {
-                        "width": 300,
-                        "height": 200
-                    },
-                    "sm": {
-                        "width": 480,
-                        "height": "auto"
-                    },
-                    "md": {
-                        "width": 749,
-                        "height": "auto"
-                    },
-                    "xl": {
-                        "width": 1200,
-                        "height": "auto"
-                    }
-                }
-            },
-            "authorImages": {
-                "sizes": "(max-width: 1200px) 100vw, 1200px",
-                "dimensions": {
-                    "xs": {
-                        "width": 300,
-                        "height": 200
-                    },
-                    "sm": {
-                        "width": 480,
-                        "height": "auto"
-                    },
-                    "md": {
-                        "width": 749,
+                        "width": 720,
                         "height": "auto"
                     },
                     "xl": {
@@ -379,10 +427,14 @@
                 }
             },
             "galleryImages": {
-                "sizes": "",
+                "sizes": "(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 400px",
                 "dimensions": {
                     "thumbnail": {
                         "width": 720,
+                        "height": "auto"
+                    },
+                    "large": {
+                        "width": 2000,
                         "height": "auto"
                     }
                 }
